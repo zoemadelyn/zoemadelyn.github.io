@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zoe Wilson — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --mist:#F3F3F5;      /* light grey */
+    --line:#E2E2E6;
+    --blush:#F9E4E8;     /* very light pink */
+    --rose:#A9475E;      /* text-safe pink for links/accents */
+    --ink:#2B2A30;
+    --soft:#6B6A72;
+    --serif:"Young Serif", Georgia, serif;
+    --sans:"Figtree", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--rose);text-underline-offset:3px}
+  :focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;margin:0}
+  p{margin:0 0 1em}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  nav .mark{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-decoration:none}
+  nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0}
+  nav ul a{color:var(--soft);text-decoration:none;font-weight:500;font-size:.95rem}
+  nav ul a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{padding:72px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:end}
+  .name{font-size:clamp(3.6rem,9vw,7.2rem);letter-spacing:-.02em;line-height:.95}
+  .name span{display:block}
+  .name .last{display:inline-block;margin-left:.9em;position:relative;z-index:0}
+  .name .last::before{content:"";position:absolute;left:-.15em;right:-.15em;bottom:.08em;height:.42em;background:var(--blush);z-index:-1;border-radius:.2em}
+  .lede{font-size:1.25rem;max-width:34ch;margin-top:28px;color:var(--ink)}
+  .hero-card{background:var(--mist);border-radius:22px;padding:28px 28px 22px}
+  .hero-card h2{font-size:1.25rem;margin-bottom:14px}
+  .hero-card ul{list-style:none;margin:0;padding:0}
+  .hero-card li{padding:11px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;font-size:.98rem}
+  .hero-card li:first-child{border-top:0}
+  .hero-card li span:last-child{color:var(--soft);text-align:right}
+  .cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .btn{display:inline-block;border:0;cursor:pointer;font-family:inherit;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.98rem}
+  .btn.primary{background:var(--ink);color:var(--white)}
+  .btn.ghost{background:var(--blush);color:var(--ink)}
+
+  /* sections */
+  section{padding:80px 0}
+  .grey{background:var(--mist)}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+  .sec-head h2{font-size:clamp(2rem,4vw,2.8rem)}
+  .sec-head p{color:var(--soft);max-width:46ch;margin:0}
+
+  /* strengths */
+  .strengths{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+  .strength{padding:26px 0;border-top:1px solid var(--line)}
+  .strength h3{font-size:1.35rem;margin-bottom:8px}
+  .strength p{color:var(--soft);margin:0;max-width:52ch}
+  .strength .proof{display:block;margin-top:10px;font-size:.92rem;color:var(--ink)}
+
+  /* filters */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+  .filters button{font:inherit;font-size:.95rem;font-weight:500;border:1px solid var(--line);background:var(--white);color:var(--ink);padding:8px 16px;border-radius:999px;cursor:pointer}
+  .filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--white)}
+
+  /* projects */
+  .projects{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .project{border-bottom:1px solid var(--line)}
+  .project[hidden]{display:none}
+  .p-toggle{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:1fr 220px 34px;gap:24px;align-items:center;padding:26px 6px}
+  .p-toggle:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+  .p-toggle:hover .p-title{color:var(--rose)}
+  .p-title{font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.75rem);line-height:1.2;transition:color .15s}
+  .p-sum{display:block;font-family:var(--sans);font-size:1rem;color:var(--soft);margin-top:6px;max-width:62ch}
+  .p-meta{font-size:.9rem;color:var(--soft);text-align:right}
+  .p-icon{width:34px;height:34px;border-radius:50%;background:var(--blush);display:grid;place-items:center;transition:transform .25s ease}
+  .p-icon::before{content:"+";font-size:1.3rem;line-height:1;color:var(--ink)}
+  .p-toggle[aria-expanded="true"] .p-icon{transform:rotate(45deg)}
+  .p-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+  .p-body.open{grid-template-rows:1fr}
+  .p-inner{overflow:hidden}
+  .p-content{display:grid;grid-template-columns:1fr 300px;gap:44px;padding:4px 6px 36px}
+  .p-content.noimg{grid-template-columns:1fr}
+  .p-content h4{font-family:var(--sans);font-size:.95rem;font-weight:600;margin:22px 0 6px}
+  .p-content h4:first-child{margin-top:0}
+  .p-content p,.p-content li{max-width:66ch}
+  .p-content ul{margin:0 0 1em;padding-left:1.1em}
+  .p-content li{margin-bottom:4px}
+  .p-content .tags{padding-left:0;margin-top:18px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0;list-style:none}
+  .tags li{background:var(--mist);border-radius:999px;padding:5px 13px;font-size:.88rem;margin:0}
+  figure{margin:0}
+  figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);background:var(--white)}
+  figure.tall img{max-height:520px;object-fit:cover;object-position:top}
+  figcaption{font-size:.85rem;color:var(--soft);margin-top:8px}
+  .stat-row{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 4px}
+  .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.1}
+  .stat span{font-size:.88rem;color:var(--soft)}
+  .series{list-style:none;padding:0;margin:0 0 1em;border-left:2px solid var(--blush)}
+  .series li{padding:4px 0 10px 16px}
+  .series b{font-weight:600}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .about-grid p{font-size:1.1rem}
+  .contact-card{background:var(--blush);border-radius:22px;padding:32px}
+  .contact-card h3{font-size:1.6rem;margin-bottom:12px}
+  .contact-card dl{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px}
+  .contact-card dt{font-weight:600}
+  .contact-card dd{margin:0;word-break:break-word}
+  .linkbtn{font:inherit;color:var(--rose);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .placeholder{background:var(--white);border:1px dashed var(--rose);border-radius:6px;padding:0 6px;color:var(--rose)}
+
+
+  /* document buttons */
+  .docs{margin-top:24px;padding:18px 18px 16px;background:var(--blush);border-radius:16px}
+  .p-content .docs h4{margin:0 0 10px}
+  .doc-list{display:flex;flex-wrap:wrap;gap:10px}
+  .doc{font:inherit;cursor:pointer;border:0;background:var(--white);color:var(--ink);border-radius:12px;padding:10px 14px;text-align:left;display:flex;flex-direction:column;gap:1px;min-width:150px}
+  .doc:hover{box-shadow:0 0 0 1.5px var(--rose)}
+  .doc-name{font-weight:600;font-size:.95rem}
+  .doc-pages{font-size:.82rem;color:var(--soft)}
+
+  /* reader */
+  .reader{position:fixed;inset:0;z-index:20;background:rgba(43,42,48,.55);display:none;align-items:stretch;justify-content:center;padding:24px}
+  .reader.open{display:flex}
+  .reader-box{background:var(--mist);width:min(920px,100%);border-radius:18px;display:flex;flex-direction:column;overflow:hidden}
+  .reader-bar{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--white);border-bottom:1px solid var(--line)}
+  .reader-bar h3{font-size:1.1rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .reader-bar .count{font-size:.88rem;color:var(--soft);white-space:nowrap}
+  .reader-bar a{font-weight:600;font-size:.92rem;white-space:nowrap}
+  .reader-close{font:inherit;border:0;background:var(--blush);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1;flex:none}
+  .reader-pages{overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;align-items:center}
+  .reader-pages img{width:100%;max-width:860px;height:auto;background:var(--white);border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  body.locked{overflow:hidden}
+
+  /* experience */
+  .jobs{list-style:none;margin:0;padding:0}
+  .job{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line)}
+  .job-when{color:var(--soft);font-size:.95rem}
+  .job h3{font-size:1.4rem;margin-bottom:2px}
+  .job .role{font-weight:600;margin:0 0 10px}
+  .job ul{margin:0;padding-left:1.1em;max-width:68ch}
+  .job li{margin-bottom:5px}
+  @media (max-width:860px){.job{grid-template-columns:1fr;gap:6px}.reader{padding:0}.reader-box{border-radius:0}.reader-bar a span{display:none}}
+
+  footer{padding:30px 0 40px;color:var(--soft);font-size:.9rem}
+
+  @media (max-width:860px){
+    .hero-grid,.about-grid,.strengths{grid-template-columns:1fr}
+    .hero-grid{gap:36px}
+    .p-toggle{grid-template-columns:1fr 34px}
+    .p-meta{display:none}
+    .p-content{grid-template-columns:1fr;gap:26px}
+    nav ul{gap:16px}
+  }
+  @media (max-width:520px){
+    nav ul li:nth-child(1),nav ul li:nth-child(3){display:none}
+    .name .last{margin-left:.5em}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top">Zoe Wilson</a>
+    <ul>
+      <li><a href="#strengths">Strengths</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="name"><span>Zoe</span><span class="last">Wilson</span></h1>
+      <p class="lede">Communication major at UC Santa Barbara. I build campaigns, PR strategy and consumer research that stand up to the numbers.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See my work</a>
+        <button type="button" class="btn ghost doc-open" data-doc="resume">View resume</button>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="At a glance">
+      <h2>At a glance</h2>
+      <ul>
+        <li><span>Study</span><span>B.A. Communication, UCSB</span></li>
+        <li><span>Year</span><span>4th year, graduating 2027</span></li>
+        <li><span>Based in</span><span>Santa Barbara, California</span></li>
+        <li><span>Focus</span><span>Marketing, PR, brand strategy</span></li>
+        <li><span>Toolkit</span><span>Surveys, A/B tests, conjoint, IMC plans</span></li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+<section class="grey" id="strengths">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What I bring</h2>
+      <p>Each strength below comes from finished work you can open in the projects section.</p>
+    </div>
+    <div class="strengths">
+      <div class="strength">
+        <h3>Campaigns and brand building</h3>
+        <p>I take a brand from positioning to the finished concept: name, story, slogan, visual identity, social plan and launch event.</p>
+        <span class="proof">Shown in OVERFUELED for Diesel, Aurelia GT, She Means Business</span>
+      </div>
+      <div class="strength">
+        <h3>Consumer research and data</h3>
+        <p>I design experiments and surveys, run the analysis, and turn the results into a recommendation a brand could act on.</p>
+        <span class="proof">Shown in the celebrity endorsement study and Digital Consumer Behavior</span>
+      </div>
+      <div class="strength">
+        <h3>PR and cause-driven communication</h3>
+        <p>I write for funders, donors and partners, and I set measurable goals so social impact work can be tracked and reported.</p>
+        <span class="proof">Shown in Healing Justice Santa Barbara, She Means Business, Scrolling Past Democracy</span>
+      </div>
+      <div class="strength">
+        <h3>Persuasive writing and collaboration</h3>
+        <p>I explain complex research clearly for non-specialists, and I've delivered work as a solo author and on teams of two, four and seven.</p>
+        <span class="proof">Shown in the policy memo series and the IMC plan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <p>Open any project for the brief, what I did and the outcome, then read the full documents.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-filter="all" aria-pressed="true">All work</button>
+      <button type="button" data-filter="brand" aria-pressed="false">Campaigns &amp; brand</button>
+      <button type="button" data-filter="pr" aria-pressed="false">PR &amp; social impact</button>
+      <button type="button" data-filter="research" aria-pressed="false">Research &amp; insights</button>
+    </div>
+
+    <ul class="projects">
+
+      <!-- 1 Diesel -->
+      <li class="project" data-cat="brand">
+        <button class="p-toggle" aria-expanded="false" aria-controls="p1">
+          <span><span class="p-title">OVERFUELED: a Diesel campaign</span>
+          <span class="p-sum">A mock sustainability campaign for Diesel's Rehab Denim line, created while studying in Florence.</span></span>
+          <span class="p-meta">Florence, Italy<br>Campaign concept</span>
+          <span class="p-icon" aria-hidden="true"></span>
+        </button>
+        <div class="p-body" id="p1"><div class="p-inner"><div class="p-content noimg">
+          <div>
+            <h4>The brief</h4>
+            <p>Create a campaign for Diesel that stays true to its provocative, youth-culture brand. I used Diesel's Rehab Denim program to make a statement about climate change and overconsumption, under the line <em>"Heat up the rivalry, not the planet."</em></p>
+            <h4>What I built</h4>
+            <ul>
+              <li><strong>Brand analysis</strong> of Diesel's history, communication style and core 18–35 audience, used to set a provocative, blunt and urgent tone aimed at Gen Z.</li>
+              <li><strong>Creative direction</strong> for a digital magazine campaign, with mood boards, cheeky captions and pop-culture wordplay that focus on one product, denim.</li>
+              <li><strong>An ethical code of conduct</strong> covering responsible materials, fair representation, respect for creative labor, lower production impact and accountability.</li>
+              <li><strong>A launch event at Tunnel Club Milano</strong> called "Strip Away Your Desires." Models shed oversized layers on the runway to reveal sleek Diesel denim, leaving a pile of excess clothing as a visual statement. Guests watch tailors upcycle vintage denim at a Denim Repair Bar, and the layers they leave behind are donated to charity.</li>
+            </ul>
+            <h4>Why it matters</h4>
+            <p>The campaign ties a sustainability message to a real product program and builds the event around shareable moments, so the cause becomes part of the brand story.</p>
+            <div class="docs"><h4>Read the full work</h4><div class="doc-list"><button type="button" class="doc" data-doc="diesel"><span class="doc-name">Campaign deck</span><span class="doc-pages">15 pages</span></button></div></div>
+            <ul class="tags"><li>Campaign strategy</li><li>Creative direction</li><li>Cause marketing</li><li>Experiential events</li><li>Gen Z audiences</li></ul>
+          </div>
+        </div></div></div>
+      </li>
+
+      <!-- 2 Aurelia -->
+      <li class="project" data-cat="brand">
+        <button class="p-toggle" aria-expanded="false" aria-controls="p2">
+          <span><span class="p-title">Aurelia GT: a luxury Italian car brand</span>
+          <span class="p-sum">A boutique Gran Turismo house, built from scratch around "slow luxury" and Italian craftsmanship.</span></span>
+          <span class="p-meta">Team of 4<br>Brand creation</span>
+          <span class="p-icon" aria-hidden="true"></span>
+        </button>
+        <div class="p-body" id="p2"><div class="p-inner"><div class="p-content noimg">
+          <div>
+            <h4>The brief</h4>
+            <p>For a marketing class, invent a company that reflects the character of Italian business. Our team created Aurelia Gran Turismo, a boutique carmaker that values the journey over speed.</p>
+            <h4>What we built</h4>
+            <ul>
+              <li><strong>Brand foundation:</strong> the name (Latin for "golden," and a nod to the ancient Via Aurelia), mission, vision and the selling point "less speed, more enjoyment."</li>
+              <li><strong>Brand DNA and personality:</strong> handmade Florentine leather interiors paired with engineering from Emilia-Romagna's Motor Valley, and a brand archetype that blends the Lover and the Explorer.</li>
+              <li><strong>Story and slogan:</strong> a founder story and the line <em>"Non conta la meta, ma il viaggio"</em> (it's not the destination that counts, but the journey).</li>
+              <li><strong>Positioning</strong> against Porsche, Bentley and Rolls-Royce for accomplished drivers aged 35–60 who value intentional living.</li>
+              <li><strong>Visual identity and social strategy:</strong> a cream-and-gold palette with a fleur-de-lis logo, cinematic lifestyle content, and the hashtags #LussoLento and #DriveInGold.</li>
+            </ul>
+            <div class="docs"><h4>Read the full work</h4><div class="doc-list"><button type="button" class="doc" data-doc="aurelia"><span class="doc-name">Marketing presentation</span><span class="doc-pages">10 pages</span></button></div></div>
+            <ul class="tags"><li>Brand identity</li><li>Positioning</li><li>Storytelling</li><li>Social media strategy</li><li>Luxury marketing</li></ul>
+          </div>
+        </div></div></div>
+      </li>
+
+      <!-- 3 Celebrity -->
+      <li class="project" data-cat="research">
+        <button class="p-toggle" aria-expanded="false" aria-controls="p3">
+          <span><span class="p-title">The effect of celebrity endorsements on brand trust and purchase intention</span>
+          <span class="p-sum">A survey experiment testing whether a famous face makes consumers trust a brand more and want to buy from it.</span></span>
+          <span class="p-meta">Solo research<br>Fall 2024</span>
+          <span class="p-icon" aria-hidden="true"></span>
+        </button>
+        <div class="p-body" id="p3"><div class="p-inner"><div class="p-content noimg">
+          <div>
+            <h4>The question</h4>
+            <p>Brands spend heavily on celebrity endorsers. I tested whether endorsements raise brand trust (H1) and purchase intention (H2), building on prior research about parasocial relationships and brand attitudes.</p>
+            <h4>Method</h4>
+            <p>I designed and ran a Google Forms survey with 46 UCSB students. Each participant saw two ads from each of five brands, one with a celebrity endorser and one without, and rated trust and purchase intention on 5-point scales. The analysis focused on the Uber Eats ad featuring Simone Biles, the endorser participants recognized most.</p>
+            <h4>Results</h4>
+            <div class="stat-row">
+              <div class="stat"><b>3.48 vs 3.20</b><span>average brand trust, with vs without celebrity</span></div>
+              <div class="stat"><b>3.63 vs 3.13</b><span>average purchase intention, with vs without</span></div>
+            </div>
+            <p>Both hypotheses were supported. The paper also sets out the study's limits, including the small, single-class sample, and what they mean for applying the findings.</p>
+            <div class="docs"><h4>Read the full work</h4><div class="doc-list"><button type="button" class="doc" data-doc="celebrity"><span class="doc-name">Research paper</span><span class="doc-pages">23 pages</span></button></div></div>
+            <ul class="tags"><li>Experimental design</li><li>Survey research</li><li>Data analysis</li><li>Literature review</li><li>Influencer marketing</li></ul>
+          </div>
+        </div></div></div>
+      </li>
+
+      <!-- 4 HJSB -->
+      <li class="project" data-cat="pr">
+        <button class="p-toggle" aria-expanded="false" aria-controls="p4">
+          <span><span class="p-title">Integrated marketing plan for Healing Justice Santa Barbara</span>
+          <span class="p-sum">A donor-growth strategy for a real client, a Black women-led nonprofit on the Central Coast.</span></span>
+          <span class="p-meta">Team of 7<br>Strategy Consultant</span>
+          <span class="p-icon" aria-hidden="true"></span>
+        </button>
+        <div class="p-body" id="p4"><div class="p-inner"><div class="p-content">
+          <div>
+            <h4>The challenge</h4>
+            <p>Healing Justice Santa Barbara (HJSB) runs year-round mentorship, cultural arts and community-care programs, but it relies heavily on grants and spends far less on communications than most nonprofits. As a Strategy Consultant at our student agency, Rise Marketing Group, I helped build a full integrated marketing communications (IMC) plan to grow and diversify its funding.</p>
+            <h4>What we delivered</h4>
+            <ul>
+              <li>A positioning statement, client research, competitor analysis and a full SWOT.</li>
+              <li>A creative strategy built around audience personas and key messages.</li>
+              <li><strong>Primary tactic:</strong> a Student Ambassador Program that trains Black Student Alliance members to tell HJSB's story on TikTok and Instagram, and connects donors to them as mentors.</li>
+              <li><strong>Secondary tactics:</strong> quarterly Community Impact Socials for donors, and an Impact &amp; Opportunities Portal for personalized donor updates.</li>
+              <li>Editable promotional materials the client can use right away.</li>
+            </ul>
+            <h4>Measurable goals</h4>
+            <div class="stat-row">
+              <div class="stat"><b>+25%</b><span>donor inquiries</span></div>
+              <div class="stat"><b>10</b><span>new recurring monthly donors</span></div>
+              <div class="stat"><b>+25%</b><span>donor retention and pledges</span></div>
+            </div>
+            <div class="docs"><h4>Read the full work</h4><div class="doc-list"><button type="button" class="doc" data-doc="hjsb"><span class="doc-name">IMC plan</span><span class="doc-pages">35 pages</span></button></div></div>
+            <ul class="tags"><li>IMC planning</li><li>Nonprofit PR</li><li>Donor relations</li><li>SWOT &amp; market research</li><li>Social media</li></ul>
+          </div>
+          <figure>
+            <img src="img/hjsb.jpg" alt="Cover of the Integrated Marketing Communications Plan by Rise Marketing Group for Healing Justice SB" loading="lazy">
+            <figcaption>Plan cover, by Rise Marketing Group</figcaption>
+          </figure>
+        </div></div></div>
+      </li>
+
+      <!-- 5 She Means Business -->
+      <li class="project" data-cat="pr brand">
+        <button class="p-toggle" aria-expanded="false" aria-controls="p5">
+          <span><span class="p-title">She Means Business: CSR proposal and logo</span>
+          <span class="p-sum">A corporate social responsibility partnership that helps women entrepreneurs in Africa and South Asia grow their businesses.</span></span>
+          <span class="p-meta">Team of 2<br>June 2025</span>
+          <span class="p-icon" aria-hidden="true"></span>
+        </button>
+        <div class="p-body" id="p5"><div class="p-inner"><div class="p-content">
+          <div>
+            <h4>The idea</h4>
+            <p>For a corporate social responsibility (CSR) course, we proposed a partnership between Absa, a South African bank, and BRAC, a global anti-poverty NGO. Absa brings financial expertise and microloans. BRAC brings its local presence in the communities. Together they give women-led small businesses financial skills, small loans and support networks.</p>
+            <h4>What makes it work</h4>
+            <ul>
+              <li>Training that doesn't depend on reading and writing, so women with low literacy can take part.</li>
+              <li>Childcare during sessions and outreach to male allies, to address the social barriers that keep women out of business.</li>
+              <li>A KPI framework across three areas: financial results (such as an 85% loan repayment rate in the first six months, and 50% more use of formal banking tools), empowerment, and long-term sustainability.</li>
+            </ul>
+            <h4>The logo</h4>
+            <p>The tree, a symbol of prosperity in Bengali culture, stands for the firms and the women growing together. The design works in both partners' brand shapes and colors, and the name appears in English and Bengali in the colors of the Bangladesh flag.</p>
+            <div class="docs"><h4>Read the full work</h4><div class="doc-list"><button type="button" class="doc" data-doc="smb-proposal"><span class="doc-name">CSR proposal</span><span class="doc-pages">15 pages</span></button><button type="button" class="doc" data-doc="smb-logo"><span class="doc-name">Logo design</span><span class="doc-pages">1 page</span></button></div></div>
+            <ul class="tags"><li>CSR strategy</li><li>KPIs &amp; measurement</li><li>Partnership development</li><li>Cross-cultural communication</li><li>Logo design</li></ul>
+          </div>
+          <figure>
+            <img src="img/smb-logo.jpg" alt="She Means Business logo: a tree growing from the letters a and b inside a red circle, with three women at a table and the name in English and Bengali" loading="lazy">
+            <figcaption>The She Means Business logo</figcaption>
+          </figure>
+        </div></div></div>
+      </li>
+
+      <!-- 6 Scrolling Past Democracy -->
+      <li class="project" data-cat="pr research">
+        <button class="p-toggle" aria-expanded="false" aria-controls="p6">
+          <span><span class="p-title">Scrolling Past Democracy</span>
+          <span class="p-sum">A three-memo series and infographic for funders on how short-form media spreads misinformation among Gen Z, and a way to fix it.</span></span>
+          <span class="p-meta">Solo, 4 pieces<br>Summer 2025</span>
+          <span class="p-icon" aria-hidden="true"></span>
+        </button>
+        <div class="p-body" id="p6"><div class="p-inner"><div class="p-content">
+          <div>
+            <h4>The series</h4>
+            <ol class="series">
+              <li><b>Memo 1: The problem.</b> Young people increasingly come across news by chance while scrolling and assume it will find them. This puts journalism's role in informing citizens at risk and makes misinformation easier to spread.</li>
+              <li><b>Memo 2: The theory.</b> Uses and Gratifications Theory explains why: Gen Z often shares news for social connection rather than to learn, which rewards sensational and false headlines.</li>
+              <li><b>Memo 3: Existing solutions.</b> An evaluation of media literacy education, including California's AB 873, and of platform algorithm changes, showing what they solve and the gaps they leave.</li>
+              <li><b>Final infographic: The proposal.</b> A News Credibility Rewards Program, a gamified system of badges and points that rewards users for sharing verified journalism. It turns the urge for social validation into a reason to share the truth.</li>
+            </ol>
+            <h4>Why it matters</h4>
+            <p>The series is written for funders. It builds a case step by step, moves from research to recommendation, and ends with a visual pitch that can be read in a minute.</p>
+            <div class="docs"><h4>Read the full work</h4><div class="doc-list"><button type="button" class="doc" data-doc="memo1"><span class="doc-name">Memo 1: The problem</span><span class="doc-pages">6 pages</span></button><button type="button" class="doc" data-doc="memo2"><span class="doc-name">Memo 2: The theory</span><span class="doc-pages">6 pages</span></button><button type="button" class="doc" data-doc="memo3"><span class="doc-name">Memo 3: Existing solutions</span><span class="doc-pages">9 pages</span></button><button type="button" class="doc" data-doc="infographic"><span class="doc-name">Final infographic</span><span class="doc-pages">1 page</span></button></div></div>
+            <ul class="tags"><li>Persuasive writing</li><li>Media research</li><li>Communication theory</li><li>Infographic design</li><li>Pitching to funders</li></ul>
+          </div>
+          <figure class="tall">
+            <img src="img/infographic.jpg" alt="Scrolling Past Democracy infographic, titled Reconnecting youth with credible journalism, in blue panels with illustrations" loading="lazy">
+            <figcaption>Final infographic</figcaption>
+          </figure>
+        </div></div></div>
+      </li>
+
+      <!-- 7 Digital Consumer Behavior -->
+      <li class="project" data-cat="research">
+        <button class="p-toggle" aria-expanded="false" aria-controls="p7">
+          <span><span class="p-title">Digital consumer behavior: three studies</span>
+          <span class="p-sum">A laddering interview, a conjoint analysis and an A/B test, each ending in a recommendation a brand could act on.</span></span>
+          <span class="p-meta">Solo, 3 pieces<br>Fall 2025</span>
+          <span class="p-icon" aria-hidden="true"></span>
+        </button>
+        <div class="p-body" id="p7"><div class="p-inner"><div class="p-content noimg">
+          <div>
+            <h4>Laddering interview: "Wanna Get Hyped?"</h4>
+            <p>Through an in-depth interview with a fan of SEVENTEEN's CxM album <em>HYPE VIBES</em>, I mapped how the album's physical extras, like photocards and stickers, lead to connection with other fans and, deeper down, to the values of friendship and fun. I found that the existing ad missed that sense of connection and proposed a new one: fan after-parties on the world tour, filmed as a global "What gets you hype?" montage.</p>
+            <h4>Conjoint analysis: Netflix subscriptions</h4>
+            <p>I ran a regression on how much each feature of Netflix's Standard with ads plan matters to a college-aged subscriber. Ads mattered most (53.37%), followed by price (30.05%), number of screens (9.33%) and video quality (7.25%). I recommended an ad-free, mid-priced plan with student-focused pricing.</p>
+            <h4>A/B test design: "Blinded by 'Bestie?'"</h4>
+            <p>I designed an A/B test of whether a creator people already follow sells GUIZIO's viral mini skirt better than an unfamiliar one. The test tracks each step from watch time to purchase in TikTok Shop analytics and uses parasocial attachment as a moderator, so GUIZIO can see which audiences celebrity influencers actually move.</p>
+            <div class="docs"><h4>Read the full work</h4><div class="doc-list"><button type="button" class="doc" data-doc="laddering"><span class="doc-name">Laddering interview</span><span class="doc-pages">7 pages</span></button><button type="button" class="doc" data-doc="conjoint"><span class="doc-name">Conjoint analysis</span><span class="doc-pages">10 pages</span></button><button type="button" class="doc" data-doc="abtest"><span class="doc-name">A/B test design</span><span class="doc-pages">9 pages</span></button></div></div>
+            <ul class="tags"><li>Qualitative interviewing</li><li>Conjoint &amp; regression</li><li>A/B testing</li><li>Conversion metrics</li><li>Consumer insight</li></ul>
+          </div>
+        </div></div></div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Experience</h2>
+      <p>Internships, agency work and research roles where I've put these skills into practice.</p>
+    </div>
+    <ul class="jobs">
+      <li class="job">
+        <div class="job-when">May 2025 – August 2026<br>Hybrid</div>
+        <div>
+          <h3>OWASP Gen AI Security Project</h3>
+          <p class="role">Marketing &amp; Outreach Intern, Author of the Official Newsletter</p>
+          <ul>
+            <li>Boosted LinkedIn and newsletter engagement by over 50% through data-driven decisions.</li>
+            <li>Wrote the project's monthly newsletter starting in October 2025, leading content development, technical summaries and distribution.</li>
+            <li>Tracked campaign performance across platforms to improve audience engagement for high-profile cybersecurity initiatives.</li>
+            <li>Coordinated global webinars, from speaker outreach and scheduling across time zones to event logistics.</li>
+            <li>Traveled to New York to coordinate real-time media coverage of Open Source Week 2025 at the United Nations, producing content viewed by thousands across global markets.</li>
+            <li>Supported content migration for OWASP's new website, keeping it accurate and on brand.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="job-when">August – September 2025<br>Santa Barbara, CA</div>
+        <div>
+          <h3>RISE Marketing Agency</h3>
+          <p class="role">Strategy Consultant</p>
+          <ul>
+            <li>Served as Strategy Consultant at a student-run agency partnering with Healing Justice Santa Barbara.</li>
+            <li>Conducted market research, competitive analysis and audience segmentation for a data-driven communications plan.</li>
+            <li>Led the creation of performance metrics to assess campaign ROI, combining stakeholder feedback with engagement data.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="job-when">April – June 2025<br>Santa Barbara, CA</div>
+        <div>
+          <h3>She Means Business</h3>
+          <p class="role">Co-Author</p>
+          <ul>
+            <li>Co-developed a CSR proposal for a BRAC and Absa Bank partnership addressing gender-based economic inequality in Africa and South Asia.</li>
+            <li>Created financial, empowerment and sustainability KPIs, including loan repayment rates, banking adoption and long-term business retention.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="job-when">August – December 2024<br>Santa Barbara, CA</div>
+        <div>
+          <h3>Relevance Project</h3>
+          <p class="role">Lead Data Analysis Researcher</p>
+          <ul>
+            <li>Designed the survey method, from question development to measurement scales, to study celebrity endorsements, brand trust and purchase intention.</li>
+            <li>Managed the full research process, including respondent outreach and statistical analysis in Excel.</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <p style="margin-top:26px;color:var(--soft)">Also: Lambda Pi Eta, the National Communication Association's honor society. Tools: Microsoft Office, Google Workspace, Canva, CapCut, beehiiv, StreamYard.</p>
+  </div>
+</section>
+
+<section class="grey" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="sec-head" style="margin-bottom:22px"><h2>About me</h2></div>
+      <p>I'm a fourth-year Communication major at UC Santa Barbara, graduating in 2027, with a record of applying data analysis, strategic thinking and cross-functional collaboration to high-impact projects in PR and marketing.</p>
+      <p>I bring a mix of analytical rigor and communication expertise, from developing CSR proposals with measurable KPIs to optimizing engagement for global cybersecurity initiatives.</p>
+    </div>
+    <div class="contact-card">
+      <h3>Let's talk</h3>
+      <p>I'm open to PR, marketing and communications roles and internships.</p>
+      <dl>
+        <dt>Email</dt><dd><a href="mailto:zoe_wilson@ucsb.edu">zoe_wilson@ucsb.edu</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+14088165191">(408) 816-5191</a></dd>
+        <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/zoe-wilson-ba697534a/" target="_blank" rel="noopener">linkedin.com/in/zoe-wilson</a></dd>
+        <dt>Location</dt><dd>Santa Barbara, California</dd>
+        <dt>Resume</dt><dd><button type="button" class="linkbtn doc-open" data-doc="resume">View resume</button> or <a href="docs/Zoe_Wilson_Resume.pdf" target="_blank" rel="noopener">open the PDF</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Zoe Wilson. Class projects are shown as student work.</div>
+</footer>
+
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+  <div class="reader-box">
+    <div class="reader-bar">
+      <h3 id="reader-title">Document</h3>
+      <span class="count" id="reader-count"></span>
+      <a id="reader-pdf" href="#" target="_blank" rel="noopener">Open PDF<span> in new tab</span></a>
+      <button type="button" class="reader-close" id="reader-close" aria-label="Close document">×</button>
+    </div>
+    <div class="reader-pages" id="reader-pages" tabindex="0"></div>
+  </div>
+</div>
+
+<script>
+  // Expand / collapse projects
+  document.querySelectorAll('.p-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      document.getElementById(btn.getAttribute('aria-controls')).classList.toggle('open', !open);
+    });
+  });
+  // Filters
+  const filterBtns = document.querySelectorAll('.filters button');
+  filterBtns.forEach(b => b.addEventListener('click', () => {
+    const f = b.dataset.filter;
+    filterBtns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll('.project').forEach(p => {
+      p.hidden = !(f === 'all' || p.dataset.cat.split(' ').includes(f));
+    });
+  }));
+
+  // Document reader
+  const DOCS = {"diesel": {"t": "OVERFUELED: Diesel campaign deck", "n": 15, "pdf": "docs/Overfueled_Diesel_Campaign.pdf"}, "aurelia": {"t": "Aurelia GT marketing presentation", "n": 10, "pdf": "docs/Aurelia_GT_Marketing_Presentation.pdf"}, "celebrity": {"t": "The Effect of Celebrity Endorsements on Brand Trust and Purchase Intention", "n": 23, "pdf": "docs/Celebrity_Endorsements_Study.pdf"}, "hjsb": {"t": "Integrated Marketing Communications Plan for Healing Justice Santa Barbara", "n": 35, "pdf": "docs/Healing_Justice_SB_IMC_Plan.pdf"}, "smb-proposal": {"t": "She Means Business: CSR proposal", "n": 15, "pdf": "docs/She_Means_Business_Proposal.pdf"}, "smb-logo": {"t": "She Means Business: logo design", "n": 1, "pdf": "docs/She_Means_Business_Logo.pdf"}, "memo1": {"t": "Scrolling Past Democracy, Memo 1", "n": 6, "pdf": "docs/Scrolling_Past_Democracy_Memo_1.pdf"}, "memo2": {"t": "Scrolling Past Democracy, Memo 2", "n": 6, "pdf": "docs/Scrolling_Past_Democracy_Memo_2.pdf"}, "memo3": {"t": "Scrolling Past Democracy, Memo 3", "n": 9, "pdf": "docs/Scrolling_Past_Democracy_Memo_3.pdf"}, "infographic": {"t": "Scrolling Past Democracy: final infographic", "n": 1, "pdf": "docs/Scrolling_Past_Democracy_Infographic.pdf"}, "laddering": {"t": "Laddering interview: Wanna Get Hyped?", "n": 7, "pdf": "docs/Laddering_Interview_HYPE_VIBES.pdf"}, "conjoint": {"t": "Conjoint analysis: Netflix monthly subscription", "n": 10, "pdf": "docs/Conjoint_Analysis_Netflix.pdf"}, "abtest": {"t": "A/B test: Blinded by \"Bestie?\"", "n": 9, "pdf": "docs/AB_Test_GUIZIO.pdf"}, "resume": {"t": "Zoe Wilson resume", "n": 1, "pdf": "docs/Zoe_Wilson_Resume.pdf"}};
+  const reader = document.getElementById('reader');
+  const pagesEl = document.getElementById('reader-pages');
+  let lastFocus = null;
+  function openDoc(key){
+    const d = DOCS[key]; if(!d) return;
+    lastFocus = document.activeElement;
+    document.getElementById('reader-title').textContent = d.t;
+    document.getElementById('reader-count').textContent = d.n + (d.n === 1 ? ' page' : ' pages');
+    document.getElementById('reader-pdf').href = d.pdf;
+    pagesEl.innerHTML = '';
+    for(let i = 1; i <= d.n; i++){
+      const img = document.createElement('img');
+      img.src = 'pages/' + key + '/' + i + '.jpg';
+      img.alt = d.t + ', page ' + i + ' of ' + d.n;
+      if(i > 2) img.loading = 'lazy';
+      pagesEl.appendChild(img);
+    }
+    pagesEl.scrollTop = 0;
+    reader.classList.add('open');
+    document.body.classList.add('locked');
+    document.getElementById('reader-close').focus();
+  }
+  function closeDoc(){
+    reader.classList.remove('open');
+    document.body.classList.remove('locked');
+    pagesEl.innerHTML = '';
+    if(lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-doc]').forEach(b => b.addEventListener('click', () => openDoc(b.dataset.doc)));
+  document.getElementById('reader-close').addEventListener('click', closeDoc);
+  reader.addEventListener('click', e => { if(e.target === reader) closeDoc(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && reader.classList.contains('open')) closeDoc(); });
+</script>
+</body>
+</html>
