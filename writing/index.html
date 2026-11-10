@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing Samples — Zoe Wilson</title>
+<meta name="description" content="Writing samples by Zoe Wilson: two policy memos from the Scrolling Past Democracy series on Gen Z, social media and the news.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --mist:#F3F3F5; --line:#E2E2E6; --blush:#F9E4E8; --rose:#A9475E;
+    --ink:#2B2A30; --soft:#6B6A72;
+    --serif:"Young Serif", Georgia, serif; --sans:"Figtree", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--white);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--rose);text-underline-offset:3px}
+  :focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;margin:0}
+  p{margin:0 0 1em}
+
+  nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  nav .mark{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-decoration:none}
+  nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0}
+  nav ul a{color:var(--soft);text-decoration:none;font-weight:500;font-size:.95rem}
+  nav ul a:hover{color:var(--ink)}
+
+  .hero{padding:64px 0 48px}
+  .eyebrow{font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+  .hero h1{font-size:clamp(2.8rem,7vw,5rem);letter-spacing:-.02em;line-height:1}
+  .hero h1 span{position:relative;z-index:0;display:inline-block}
+  .hero h1 span::before{content:"";position:absolute;left:-.12em;right:-.12em;bottom:.06em;height:.4em;background:var(--blush);z-index:-1;border-radius:.2em}
+  .lede{font-size:1.2rem;max-width:58ch;margin-top:22px}
+  .lede-soft{color:var(--soft);max-width:62ch}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+  .card{background:var(--mist);border-radius:22px;padding:28px;display:flex;flex-direction:column}
+  .card .num{font-size:.85rem;font-weight:600;color:var(--soft);margin-bottom:8px}
+  .card h2{font-size:1.45rem;margin-bottom:12px}
+  .card p{color:var(--ink);font-size:1rem}
+  .card .meta{font-size:.9rem;color:var(--soft);margin-bottom:18px}
+  .card .actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem}
+  .btn.primary{background:var(--ink);color:var(--white)}
+  .btn.ghost{background:var(--blush);color:var(--ink)}
+
+  .memo{padding:72px 0;border-top:1px solid var(--line)}
+  .memo.grey{background:var(--mist)}
+  .memo-head{max-width:720px;margin:0 auto 36px}
+  .memo-head .num{font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+  .memo-head h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:16px}
+  .memo-head .byline{color:var(--soft);font-size:.98rem;margin-bottom:18px}
+  .memo-body{max-width:720px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:48px 56px}
+  .memo-body h3{font-size:1.45rem;margin:36px 0 12px}
+  .memo-body h3:first-child{margin-top:0}
+  .memo-body h4{font-family:var(--sans);font-style:italic;font-weight:600;font-size:1.02rem;margin:22px 0 8px}
+  .memo-body p{font-size:1.06rem;line-height:1.75}
+  .refs p{font-size:.92rem;line-height:1.6;padding-left:2em;text-indent:-2em;color:var(--soft);word-break:break-word}
+  .back{max-width:720px;margin:22px auto 0;font-size:.95rem}
+
+  footer{padding:30px 0 40px;color:var(--soft);font-size:.9rem;border-top:1px solid var(--line)}
+
+  @media (max-width:860px){
+    .cards{grid-template-columns:1fr}
+    .memo-body{padding:30px 22px;border-radius:14px}
+    nav ul{gap:16px}
+  }
+  @media (max-width:520px){
+    nav ul li:first-child{display:none}
+    .memo{padding:52px 0}
+    .wrap{padding:0 18px}
+  }
+  @media print{
+    nav,.cards,.back,.actions,footer{display:none}
+    .memo{border:0;padding:0;background:none!important;page-break-before:always}
+    .memo-body{border:0;padding:0}
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="/">Zoe Wilson</a>
+    <ul>
+      <li><a href="#memo-1">Memo 1</a></li>
+      <li><a href="#memo-2">Memo 2</a></li>
+      <li><a href="/">Full portfolio</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Writing samples</p>
+    <h1>Scrolling Past <span>Democracy</span></h1>
+    <p class="lede">Two memos from a policy series I wrote on how Gen Z gets its news from social media, and what that means for misinformation, polarization and civic life.</p>
+    <p class="lede-soft">Written for an audience of potential funders, the memos turn academic research into a clear, persuasive case. I researched and wrote both on my own for COMM W 188: News, Politics, &amp; Democracy at UC Santa Barbara in August 2025. The full text of each is below, or you can download the original PDF.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="num">Sample 1</div>
+        <h2>Journalism’s Challenge Against Youth</h2>
+        <p>Lays out the problem: young people now come across news by chance while scrolling, which leads to news fatigue, the spread of false headlines, and a drift away from civic participation.</p>
+        <div class="meta">Policy memo · 17 August 2025 · 6 pages with title page and references</div>
+        <div class="actions">
+          <a class="btn primary" href="#memo-1">Read Memo 1</a>
+          <a class="btn ghost" href="/docs/Scrolling_Past_Democracy_Memo_1.pdf" target="_blank" rel="noopener">Download PDF</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num">Sample 2</div>
+        <h2>Uses and Gratifications Theory and Modern News Habits</h2>
+        <p>Explains why: Gen Z often shares news for social connection rather than to learn, which rewards sensational headlines and builds the echo chambers that deepen polarization.</p>
+        <div class="meta">Policy memo · 31 August 2025 · 6 pages with title page and references</div>
+        <div class="actions">
+          <a class="btn primary" href="#memo-2">Read Memo 2</a>
+          <a class="btn ghost" href="/docs/Scrolling_Past_Democracy_Memo_2.pdf" target="_blank" rel="noopener">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article class="memo grey" id="memo-1" aria-labelledby="memo-1-title">
+  <div class="wrap">
+    <div class="memo-head">
+      <div class="num">Writing sample 1</div>
+      <h2 id="memo-1-title">Scrolling Past Democracy: Journalism’s Challenge Against Youth</h2>
+      <div class="byline">Zoe Wilson · Department of Communication, UC Santa Barbara · COMM W 188: News, Politics, &amp; Democracy · Dr. Dan Lane · 17 August 2025</div>
+      <a class="btn ghost" href="/docs/Scrolling_Past_Democracy_Memo_1.pdf" target="_blank" rel="noopener">Download PDF</a>
+    </div>
+    <div class="memo-body">
+<h3>Introduction</h3>
+<p>In a robust democracy, a well informed population is essential, amongst youth in particular. In prior years, Generation Z were widely viewed as the future change makers of the world. In recent years, however, there has been a major shift in the direction of news avoidance among youth. Growing disengaged from traditional news sources, youth have been increasingly gravitating towards short-form social media content to stay up to date. This shift has the potential to completely unroot journalism’s primary democratic functions: information, public forum, and democratic education in particular. If modern-day journalism fails to engage with the times, today’s youth risk being misinformed, polarized, or absent from civic life. As potential funders, you are uniquely positioned to help support innovative strategies to reinvigorate the younger generations’ passion for change by advocating for quality journalism.</p>
+<h3>Problem Description</h3>
+<p>Social media becoming the primary agent of news for youth has caused an array unprecedented changes to the way in which journalism functions. Studies have shown that people aged 18-24 overwhelmingly rely on social media sites such as Instagram, TikTok, and Twitter as their main gateways to information rather than seeking it from traditional sources (De Corniere &amp; Sarvary, 2021). These platforms are where short-form content reign supreme, which has led into the issue of incidental news consumption, the act of news viewership purely by chance. In the modern environment of news sharing, young people often encounter headlines while scrolling for entertainment, rather than engaging with news intentionally. Increasing trends of a “news-finds-me” mindset among youth have emerged in which young people no longer feel the need to seek out journalism on current events as it is believed that they will be exposed to it eventually through their feed by the act of news sharing among friends through the form of reposting and “for-you” feed curation (Vazquez-Herrero et. al, 2022). However, as youth become increasingly trusting of the news they incidentally see online, the trust for fake news and disinformation are also on the rise.</p>
+<h3>Problem Causes</h3>
+<p>With the culture of sharing one’s life and experiences on social media for others, it is only natural that the frequent sharing of news would be a natural consequence. With the constant sharing, liking, and reposting of content, it is natural for one to stumble upon amounts of information that can seem impossible to synthesize. Studies have shown that higher levels of attention to short-form media content for news have eventually led to increased levels of news information overload, or better known as news fatigue (Lee et. al, 2017). News information overload describes the negative and drained emotional state one can enter from consuming too much news, in particular negative news.</p>
+<p>Another issue that may arise from gathering news purely from social media sites is the cycling and spreading of false information. Short-form content is the perfect breeding ground for fake news. In one survey, more than one-third of subjects have admitted to previously sharing a news story that they saw on their feeds without reading the full content (usually only the headline) or fact-checking the article with secondary sources (Vazquez-Herrero et. al, 2022). This is particularly problematic when coupled with the increasing rates of Gen Z’s current “news-finds-me” mindset, as more often than not the news they are seeing being reposted onto their feed has not been fact checked and may lack credibility.</p>
+<h3>Problem Consequences</h3>
+<p>The issues of news information overload and the spreading of misinformation have the potential to have drastic effects on Gen Z’s future abilities to become engaged in democratic society, as these issues have raised concerns of withdrawal from civic participation and polarization.</p>
+<p>Studies indicate that higher levels of news information overload have been associated with news selectivity, less frequent future news exposure, and even complete news avoidance (Lee et. al, 2017). This means that the very platforms designed to connect youth to information are instead pushing them away from sustained engagement with current events. This can eventually lead to lower levels of political knowledge among youth, which can have consequences such as lower levels of voter turnout, less mobilization against injustices, and a lack of skills to allow them to fully participate in civic society in general.</p>
+<p>The spreading of fake news can also have disastrous consequences toward the unity of younger generations, as jaw-dropping headlines being flung have been shown to cause increased levels of polarization. Young people’s reliance on their own curated feed to provide up-to-date information puts them at risk of entering an echo chamber of one-sided ideals, which has led to increased political polarization and “us vs. them” mentality (Mehlman-Brightwell et. al, 2024). When misinformation spreads unchecked, it not only creates a false sense of being informed, but also deepens ideological divides. Polarization as a consequence of misinformation leaves young people less willing to engage with opposing perspectives, putting journalism’s role as a shared public forum at risk. Rather than fostering dialogue, news consumption on social media can harden divides, creating echo chambers that weaken democratic cohesion against common disparities. When the public is focused against becoming enemies with one another, it can allow larger societal issues to slip through the cracks, leaving society even more uninformed than they were to begin with.</p>
+<p>
+If left unaddressed, the vicious cycle of overload, avoidance, and misinformation risks leaving the next generation both disconnected from journalism and distrusting of the process of democracy itself.</p>
+<h3>Conclusion</h3>
+<p>The challenges facing youth engagement with journalism are not minor inconveniences but critical threats to democracy’s foundation. As Gen Z becomes increasingly reliant on fragmented, short-form news content on social media, they face increasing risks of misinformation, polarization, and civic withdrawal that undermine journalism’s ability to provide reliable information, foster public forums, and cultivate democratic education. Addressing these challenges will require the reassessment of the current journalistic system as a whole to make it more widely accessible to the youth of consume and fully understand in order to preserve the integrity of journalism as a field. Through investing in new, innovative strategies, investors can help in playing a crucial role in maintaining not only the future of journalism, but the future of the youth as a whole to become leaders and active participants in democratic society.</p>
+<h3>References</h3>
+<div class="refs">
+<p>De Cornière, A., &amp; Sarvary, M. (2023). Social media and news: content bundling and news quality. <em>Management Science</em>, <em>69</em>(1), 162–178. <a target="_blank" rel="noopener" href="https://doi.org/10.1287/mnsc.2022.4341">https://doi.org/10.1287/mnsc.2022.4341</a></p>
+<p>Lee, S. K. et. al. (2017). The effects of news consumption via social media and news information overload on perceptions of journalistic norms and practices. <em>Computers in Human Behavior</em>, <em>75</em>, 254–263. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.chb.2017.05.007">https://doi.org/10.1016/j.chb.2017.05.007</a></p>
+<p>Mehlman-Brightwell, et. al. (2024). Information warfare fostering political polarization: facebook addiction, news credibility, and concern of foreign interference. In <em>Social Media Politics</em> (1st ed., pp. 175–193). Routledge. <a target="_blank" rel="noopener" href="https://doi.org/10.4324/9781003409427-9">https://doi.org/10.4324/9781003409427-9</a></p>
+<p>Vazquez-Herrero, J. et. al. (2022). Mind the gap! Journalism on social media and news consumption among young audiences. <em>International Journal of Communication (Online)</em>. <a target="_blank" rel="noopener" href="https://www.taylorfrancis.com/reader/download/6f4829f2-23e2-414a-8778-b236360976c5/chapter/pdf?context=ubx">https://www.taylorfrancis.com/reader/download/6f4829f2-23e2-414a-8778-b236360976c5/chapter/pdf?context=ubx</a></p>
+</div>
+    </div>
+    <p class="back"><a href="#memo-2">Continue to Memo 2</a> · <a href="#top">Back to top</a></p>
+  </div>
+</article>
+
+<article class="memo" id="memo-2" aria-labelledby="memo-2-title">
+  <div class="wrap">
+    <div class="memo-head">
+      <div class="num">Writing sample 2</div>
+      <h2 id="memo-2-title">Scrolling Past Democracy: A Look Into the Uses and Gratifications Theory and its Effects on Modern News Consumption Habits</h2>
+      <div class="byline">Zoe Wilson · Department of Communication, UC Santa Barbara · COMM W 188: News, Politics, &amp; Democracy · Dr. Dan Lane · 31 August 2025</div>
+      <a class="btn ghost" href="/docs/Scrolling_Past_Democracy_Memo_2.pdf" target="_blank" rel="noopener">Download PDF</a>
+    </div>
+    <div class="memo-body" style="border-color:var(--line);background:var(--white)">
+<h3>Introduction</h3>
+<p>The previous memo in the series of “Scrolling Past Democracy” discussed the general overview of the problem that modern day journalists are facing in connecting with today’s youth. With the recent switch into relying primarily on short-form content to stay informed, America’s younger generations have exhibited extreme trends in fake news sharing and misinformation, leading to potential issues such as increased polarization and decreased political mobility. This memo will provide a lens into the specific theory which motivates these trends to continue spreading through today’s youth. The theory which will be discussed is the Uses and Gratifications Theory of Communication. To our potential funders, it is with great hope that this analysis will provide deeper insight into these ongoing issues in order to ease your decision into helping further this endeavor.</p>
+<h3>Theory Overview - Causes</h3>
+<h4>Uses and Gratifications Theory &amp; Misinformation</h4>
+<p>The theory that can be used to explain the phenomenon of the younger generation’s habits of fake news sharing is the Uses and Gratifications Theory of Communication. In simple terms, the Uses and Gratifications Theory refers to the idea that humans are not passive consumers of media, but rather intentionally consume media sources fueled by the expected gratification, such as entertainment or social connection, they expect to receive from it (Ng &amp; Zhao, 2020). While trends among older generations show that news consumption was primarily driven by information seeking behaviors, empirical evidence suggests that Generation Z’s media habits are motivated by something else, and that is social utility (Valenzuela et. al, 2016). Rather than seeking news to expand knowledge, young people instead see it as an opportunity to connect with peers through sharing and interacting with headlines on their feed as a means of self-expression. Unfortunately, a boost in social status as gratification to consume news has not necessarily had positive effects on Generation Z’s news habits. Studies have shown that the use of news as a social network, rather than an information outlet, has been directly linked to the sharing of fake news and misinformation. One study connected the uses and gratifications theory to the rise in “sensational news” consumption among youth, ultimately concluding that headlines which contained alarming and exaggerated language received significantly more likes and shares across social media platforms, even when the actual content of the article did not necessarily match (Ng &amp; Zhao, 2020).</p>
+<p>As Gen Z tends to share and consume news with the inner motivation to receive social validation, one may be inclined to share untrue and shocking news stories as a way to attract peers into discussion, bringing more attention to misinformation through reposting it to their feed. This especially becomes an issue when considering the recent trends of Gen Z’s “news-finds-me” mindset, in which much of today’s youth has put their trust into their curated social feed, rather than empirically seeking out information themselves. These factors have the potential to lead into a vicious cycle of viewing, interacting with, and resharing fake news content to others for the sake of social validation, leading to the further spread of misinformation.</p>
+<h3>Theory Overview - Consequences</h3>
+<h4>Uses and Gratifications Theory &amp; Threats to Democracy</h4>
+<p>As today’s youth become increasingly motivated to interact and share news for social gain, concerns of social media echo chambers and increased polarization have been on the rise. Studies have shown not only that those sharing news with the motivation of social utility are more likely to share misinformation, but also to create dangerous echo chambers among their peers (Wei et. al, 2024). Echo chambers refer to the phenomenon of an artificial environment in which users are mainly exposed to information and opinions that align with their own, reinforcing existing beliefs and excluding opposing perspectives. When individuals operate within these chambers, misinformation spreads unchecked and skepticism toward alternative viewpoints hardens.</p>
+<p>The consequences of this are significant for democracy. As echo chambers grow tighter, political polarization intensifies. Statistics have shown that increased social media dependency has a direct correlation to far-left or far-right views on the political spectrum (Mehlman-Brightwell et. al, 2024). As users become addicted to the feeling of social validation from peers, they are much more likely to only seek out and share information that will help them to attain that status. Instead of fostering civic dialogue, the pursuit of social gratifications through news sharing risks turning journalism into a tool that deepens divisions.</p>
+<p>When young audiences interact with news primarily as a gateway towards peer validation, their political knowledge remains shallow, and their motivation to act on civic issues declines. Over time, this threatens the liveliness of democratic participation in the future by leaving an entire generation less informed and more divided.</p>
+<h3>Conclusion</h3>
+<p>In conclusion, Uses and Gratifications Theory helps us understand that the news consumption habits of America’s youth are not fueled by information seeking behaviors, but instead by active choices to seek gratifications such as self-expression and peer approval. Unfortunately, these motivations have been shown to harbor the potential to lead Gen Z down a slippery slope of misinformation spread and increased polarization, risking the downfall of democratic cohesion in our nation. The research and discussion above proves that, if left unchecked, these dynamics will erode journalism’s ability to effectively inform citizens, foster meaningful conversations, and encourage civic action in today’s youth.</p>
+<p>As potential funders, it is with great hope that today’s analysis has further underscored the need to find solutions that meet the needs of youth where they are at. Through finding innovative solutions to solving the issue of social media misinformation spread, we hope to engage youth through harnessing the power of social motivation while also protecting against misinformation. By investing in this project, you can help journalism rebuild its foundation in democracy and continue to shape future generations into the leaders of tomorrow.</p>
+<h3>References</h3>
+<div class="refs">
+<p>Mehlman-Brightwell, et. al. (2024). Information warfare fostering political polarization: facebook addiction, news credibility, and concern of foreign interference. In <em>Social Media Politics</em> (1st ed., pp. 175–193). Routledge. <a target="_blank" rel="noopener" href="https://doi.org/10.4324/9781003409427-9">https://doi.org/10.4324/9781003409427-9</a></p>
+<p>Ng, Y.-L., &amp; Zhao, X. (2020). The human alarm system for sensational news, online news headlines, and associated generic digital footprints: a uses and gratifications approach. <em>Communication Research</em>, <em>47</em>(2), 251–275. <a target="_blank" rel="noopener" href="https://doi.org/10.1177/0093650218793739">https://doi.org/10.1177/0093650218793739</a></p>
+<p>Valenzuela, S. et. al. (2019). Socialized for news media use: how family communication, information-processing needs, and gratifications determine adolescents’ exposure to news. <em>Communication Research</em>, <em>46</em>(8), 1095–1118. <a target="_blank" rel="noopener" href="https://doi.org/10.1177/0093650215623833">https://doi.org/10.1177/0093650215623833</a></p>
+<p>Wei, C. et. al. (2024). The uses and gratifications (U&amp;G) model for understanding fake news sharing behavior on social media. <em>The Journal of Academic Librarianship</em>, <em>50</em>(5), Article 102938. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.acalib.2024.102938">https://doi.org/10.1016/j.acalib.2024.102938</a></p>
+</div>
+    </div>
+    <p class="back"><a href="#top">Back to top</a> · <a href="/">See my full portfolio</a></p>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">© 2026 Zoe Wilson · <a href="/">zoemadelyn.github.io</a> · <a href="mailto:zoe_wilson@ucsb.edu">zoe_wilson@ucsb.edu</a></div>
+</footer>
+
+</body>
+</html>
